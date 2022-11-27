@@ -12,10 +12,11 @@ from sqlalchemy.exc import IntegrityError
 from functools import wraps
 from sqlalchemy import Table, Column, Integer, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
+import os
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+app.config['SECRET_KEY'] = os.environ['FSK_S_KEY']
 ckeditor = CKEditor(app)
 Bootstrap(app)
 
