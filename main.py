@@ -16,14 +16,14 @@ import os
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.environ['FSK_S_KEY']
+app.config['SECRET_KEY'] = os.environ.get('FSK_S_KEY')
 ckeditor = CKEditor(app)
 Bootstrap(app)
 
 Base = declarative_base()
 
 # #CONNECT TO DB
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
